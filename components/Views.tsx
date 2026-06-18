@@ -390,7 +390,15 @@ export function Stats({ store }: { store: StoreType }) {
 
       <Card className="bg-slate-800">
         <p className="text-slate-400 text-xs font-semibold mb-3">📚 Study Hours</p>
-        <BarChart data={last7} maxValue={8} activeColor="bg-sky-500" today={today} />
+        <BarChart data={last7.map(day => ({
+    key: day.key,
+    label: day.label,
+    value: day.study
+  }))}
+  maxValue={8}
+  activeColor="bg-sky-500"
+  today={today}
+/ >
       </Card>
 
       <Card className="bg-slate-800">
